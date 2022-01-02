@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Часы</title>
+    <!--link rel="stylesheet" href="style1.css"-->
+
+    <style>
+            header {
+            text-align: center;
+        }
+        
+        ul {
+            /*background: #0b0b35;*/
+            width: 250px;
+            /*height: 300px;*/
+            text-align: left;
+            /*padding-left: 500px;*/
+            /*padding-right: 300px;*/
+            margin: 1% auto;
+            font-size: 30px;
+            color: #04020c;
+        }
+        
+        #timedate {
+            font: 30px "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+            text-align: center;
+            width: 50%;
+            margin: 50px auto;
+            color: #030303;
+            /* border: 5px solid #ed1f24;
+       padding: 5px;*/
+    </style>
+
+</head>
+
+<body onLoad="initClock()">
+<!-- partial:index.partial.html -->
+<header>
+
+    <h1>Привет мой друг!</h1>
+    
+ <!--h2>Здравствуйте, вы на входе в... </h2-->
+</header>
+<section>
+  
+        
+
+
+    <div id="timedate">
+        <a id="mon">Января</a>
+        <a id="d">1</a>,
+        <a id="y">0</a><br />
+        <a id="h">12</a> :
+        <a id="m">00</a> :
+        <a id="s">00</a>
+        <a id="mi">000</a>
+    </div>
+</section>
+<footer>
+    <ul>
+
+            <li id = "link">Чтобы перейти на страницу с ресурсам по изучению front-end и back-end программированию, нажмите на: ▶️.
+           </li>
+           <br>
+            <li>
+            <a href="./pogodaa.html">Чтобы узнать погоду, нажмите здесь!
+            </a>
+            </li>  
+   </ul>
+   <h3>С уважением, Берлин Андрей.</h3>
+   <h3>©2022-2025</h3>
+</footer>
+<!-- partial -->
+<!--script src="script1.js"></script-->
+
+
+
+</body>
+<script>
+
+let link=document.getElementById('link');
+      link.onclick= () => {
+  document.location.href = "https://html-css-js-node.github.io/";
+}
+    // START CLOCK SCRIPT
+
+    Number.prototype.pad = function(n) {
+        for (var r = this.toString(); r.length < n; r = 0 + r);
+        return r;
+    };
+
+    function updateClock() {
+        var now = new Date();
+        /*  var milli = now.getMilliseconds(),*/
+        let sec = now.getSeconds(),
+            min = now.getMinutes(),
+            hou = now.getHours(),
+            mo = now.getMonth(),
+            dy = now.getDate(),
+            yr = now.getFullYear();
+        var months = ["Января", "Февраля", "Марта", "Апреля", "Майя", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"];
+        var tags = ["d", "mon", "y", "h", "m", "s", "mi"],
+            corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2)];
+        for (var i = 0; i < tags.length; i++)
+            document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
+    }
+
+    function initClock() {
+        updateClock();
+        window.setInterval("updateClock()", 1);
+    }
+
+    // END CLOCK SCRIPT
+</script>
+
+</html>
