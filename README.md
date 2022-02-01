@@ -1,4 +1,4 @@
-# Ресурсы по изучению Front-end & Back-end
+# NetWebAppJs by Berlin Andrey
 <h1>Web-page by Berlin Andrew</h1>
     <h2>Добро пожаловать, дорогие друзья!</h2>
     <h3>Проект: NetWebAppJs</h3>
